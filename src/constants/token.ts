@@ -1,0 +1,1 @@
+export const TOKEN: string = "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";
