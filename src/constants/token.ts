@@ -1,1 +1,1 @@
-export const TOKEN: string = "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";
+export const TOKEN: string = "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";

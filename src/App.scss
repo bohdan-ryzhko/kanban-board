@@ -1,0 +1,22 @@
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+@import "~bootstrap/scss/bootstrap";
+
+@import "./components/Header/header.scss";
+@import "./components/SearchForm/searchForm.scss";

@@ -1,11 +1,12 @@
 import { FC, useEffect, useState } from 'react';
-import { SearchForm } from './SearchForm/SearchForm';
+import "../App.scss";
 
 import { fetchIssues } from '../services/fetchIssues';
 import { IFetchIssuesParams } from '../interfaces/IFetchIssuesParams';
 import { IssuesInterface } from '../interfaces/IssuesInterface';
 import { IssuesBoard } from './IssuesBoard/IssuesBoard';
 import { HandleError } from './HandleError/HandleError';
+import { Header } from './Header/Header';
 
 export const App: FC = () => {
 
@@ -25,7 +26,10 @@ export const App: FC = () => {
       }
 
       fetchIssues(fetchIssuesParams)
-        .then(({ data }:any) => {
+        .then(({ data }:any ) => {
+          if (data === undefined) {
+            throw new Error(data);
+          }
           setIssues(data)
           console.log(data);
         })
@@ -42,8 +46,8 @@ export const App: FC = () => {
 
   return (
     <div className="App">
-      <SearchForm setSearchUrl={setSearchUrl} />
-      <IssuesBoard issues={issues} />
+      <Header setSearchUrl={setSearchUrl} />
+      <IssuesBoard issues={issues ? issues : []} />
       {
         error &&
         <HandleError />
