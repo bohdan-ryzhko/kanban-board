@@ -5,7 +5,7 @@ import { ColumnType } from "../../utils/enums";
 
 interface IssuesBoardProps {
 	issues?: IssuesInterface[],
-	setIssues?: (issues:IssuesInterface[]) => void
+	setIssues: (issues:IssuesInterface[]) => void
 }
 
 export const IssuesBoard: FC<IssuesBoardProps> = ({ issues, setIssues }) => {
@@ -14,13 +14,13 @@ export const IssuesBoard: FC<IssuesBoardProps> = ({ issues, setIssues }) => {
 			<div className="container">
 				<ul className="section__list">
 					<li className="issues__board">
-						<Column column={ColumnType.TO_DO} issues={issues} />
+						<Column setIssues={setIssues} column={ColumnType.TO_DO} issues={issues} />
 					</li>
 					<li className="issues__board">
-						<Column column={ColumnType.IN_PROGRESS} />
+						<Column setIssues={setIssues} column={ColumnType.IN_PROGRESS} issues={[]} />
 					</li>
 					<li className="issues__board">
-						<Column column={ColumnType.DONE} />
+						<Column setIssues={setIssues} column={ColumnType.DONE} issues={[]} />
 					</li>
 				</ul>
 			</div>

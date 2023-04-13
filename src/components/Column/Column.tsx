@@ -6,9 +6,10 @@ import { ColumnType } from "../../utils/enums";
 interface ColumnProps {
 	issues?: IssuesInterface[],
 	column: ColumnType,
+	setIssues: (issues:IssuesInterface[]) => void,
 }
 
-export const Column: FC<ColumnProps> = ({ issues, column }) => {
+export const Column: FC<ColumnProps> = ({ issues, column, setIssues }) => {
 
 	// const [currentCard, setCurrentCard] = useState<IssuesInterface>();
 
@@ -18,11 +19,14 @@ export const Column: FC<ColumnProps> = ({ issues, column }) => {
 			<ul className="issues__list">
 				{
 					(issues && issues.length > 0) &&
-					issues.map((issue, index) => <Issue
-						key={issue.id}
-						index={index}
-						issue={issue}
-					/>)
+					issues.map((issue, index) =>
+						<Issue
+							setIssues={setIssues}
+							issuesList={issues}
+							key={issue.id}
+							index={index}
+							issue={issue}
+						/>)
 				}
 			</ul>
 		</div>

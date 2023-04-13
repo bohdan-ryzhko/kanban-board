@@ -33,6 +33,7 @@ export const App: FC = () => {
           }
           const typesData = data.map((issue:IssuesInterface) => ({ ...issue, column: ColumnType.TO_DO }))
           setIssues(typesData);
+          console.log(typesData);
         })
         .catch(error => {
           setError(error);
