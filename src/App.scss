@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 ul,
 li {
   padding: 0;
@@ -16,7 +22,37 @@ p {
   padding: 0;
 }
 
-@import "~bootstrap/scss/bootstrap";
+button {
+  cursor: pointer;
+}
+
+.container {
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @media screen and (min-width: 480px) {
+    max-width: 760px;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-left: 48px;
+    padding-right: 48px;
+    max-width: 1200px;
+  }
+
+  @media screen and (min-width: 1300px) {
+    padding-left: 64px;
+    padding-right: 64px;
+    max-width: 1280px;
+  }
+}
 
 @import "./components/Header/header.scss";
 @import "./components/SearchForm/searchForm.scss";
+@import "./components/IssuesBoard/issuesBoard.scss";
+@import "./components/Column/column.scss";
+@import "./components/Issue/issue.scss";

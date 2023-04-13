@@ -1,0 +1,14 @@
+.section__list {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding-left: 0;
+  gap: 15px;
+  overflow-x: scroll;
+}
+
+.issues__board {
+  max-width: 400px;
+  width: 100%;
+  min-width: 300px;
+}

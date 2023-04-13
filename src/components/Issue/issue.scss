@@ -1,0 +1,16 @@
+.issue {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: grab;
+  overflow: hidden;
+  & > h3 {
+    margin-bottom: 7px;
+  }
+}
+
+.issues__info {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}

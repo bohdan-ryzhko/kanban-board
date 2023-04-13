@@ -1,1 +1,1 @@
-export const TOKEN: string = "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";
+export const TOKEN: string = "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";

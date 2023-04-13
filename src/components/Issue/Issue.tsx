@@ -3,31 +3,36 @@ import { IssuesInterface } from "../../interfaces/IssuesInterface";
 import { getNormalizeTime } from "../../services/getNormalizeTime";
 
 interface IssueProps {
-	issue: IssuesInterface
+	index: number,
+	issue: IssuesInterface,
 }
 
-export const Issue: FC<IssueProps> = ({ issue: { title, comments, number, created_at, updated_at, state } }) => {
+export const Issue: FC<IssueProps> = ({ index, issue }) => {
+
 	return (
-		<li className="issue">
-			<h3>{title}</h3>
-			<div className="issuesInfo">
+		<li
+			draggable={true}
+			className="issue"
+		>
+			<h3>{issue.title}</h3>
+			<div className="issues__info">
 				<p>
 					<span>#</span>
-					<span>{number}</span>
+					<span>{issue.number}</span>
 				</p>
 				<p>
 					<span>Created:</span>
-					<span>{getNormalizeTime(created_at)}</span>
+					<span>{getNormalizeTime(issue.created_at)}</span>
 				</p>
 				<p>
 					<span>Updated:</span>
-					<span>{getNormalizeTime(updated_at)}</span>
+					<span>{getNormalizeTime(issue.updated_at)}</span>
 				</p>
 				<p>
-					<span>{state}</span>
+					<span>{issue.state}</span>
 					<span>|</span>
 					<span>Comments:</span>
-					<span>{comments}</span>
+					<span>{issue.comments}</span>
 				</p>
 			</div>
 		</li>

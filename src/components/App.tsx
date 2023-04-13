@@ -27,7 +27,7 @@ export const App: FC = () => {
 
       fetchIssues(fetchIssuesParams)
         .then(({ data }:any ) => {
-          if (data === undefined) {
+          if (data === undefined || !data) {
             throw new Error(data);
           }
           setIssues(data)
@@ -47,7 +47,7 @@ export const App: FC = () => {
   return (
     <div className="App">
       <Header setSearchUrl={setSearchUrl} />
-      <IssuesBoard issues={issues ? issues : []} />
+      <IssuesBoard setIssues={setIssues} issues={issues ? issues : []} />
       {
         error &&
         <HandleError />
