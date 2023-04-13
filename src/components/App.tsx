@@ -7,6 +7,7 @@ import { IssuesInterface } from '../interfaces/IssuesInterface';
 import { IssuesBoard } from './IssuesBoard/IssuesBoard';
 import { HandleError } from './HandleError/HandleError';
 import { Header } from './Header/Header';
+import { ColumnType } from '../utils/enums';
 
 export const App: FC = () => {
 
@@ -30,8 +31,8 @@ export const App: FC = () => {
           if (data === undefined || !data) {
             throw new Error(data);
           }
-          setIssues(data)
-          console.log(data);
+          const typesData = data.map((issue:IssuesInterface) => ({ ...issue, column: ColumnType.TO_DO }))
+          setIssues(typesData);
         })
         .catch(error => {
           setError(error);
